@@ -11,3 +11,26 @@ let humidityEl = document.querySelector("#wind");
 
 
 let apiKey= ""
+
+let formSubmitHandler = funcation (event) {
+//does not refreash page
+event.preventDefault();
+
+//input value
+let city = nameInputE1.value.trim();
+
+if (city) {
+    getCityWeather(city); {
+        // containerE1.textContent = '';
+        // nameInputE1.value = "";
+    }
+}
+else {
+    alert("Enter correct city name");
+};
+
+let getCityWeather = funcation (city) {
+    // format the openweather API for city
+
+    let apiUrl = 
+}
