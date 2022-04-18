@@ -10,9 +10,9 @@ let humidityEl = document.querySelector("#container");
 let humidityEl = document.querySelector("#wind");
 
 
-let apiKey= ""
+let apiKey= "8cc8c56f0d44bd4e1c5495a1876cc8fb"
 
-let formSubmitHandler = funcation (event) {
+let formSubmitHandler = function (event) {
 //does not refreash page
 event.preventDefault();
 
@@ -29,17 +29,22 @@ else {
     alert("Enter correct city name");
 };
 
-let getCityWeather = funcation (city) {
+let getCityWeather = function (city) {
     // format the openweather API for city
 
-    let apiUrl =       +  city.  +
+    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`
+
+    // fetch from apiUrl
+    // get latitude and longitude from fetch
+    // pass latitude and longitude into one call API
+    // take results from that and put into DOM
 }
 
 // requesting url
 
-fetch(apiUrl).then(funcation (response) {
+fetch(apiUrl).then(function (response) {
     if (response.ok) {
-        (response.json().then(funcation (data) {
+        (response.json().then(function (data) {
             console.log(data);
             displayCityWeather(data);
         
@@ -50,7 +55,7 @@ fetch(apiUrl).then(funcation (response) {
     }
     })
 
-    .catch(funcation (error) {
+    .catch(function (error) {
         // .catch is getting chained onto the end of the '.then()' method
         alert("unable to connect to openweather");
     });
